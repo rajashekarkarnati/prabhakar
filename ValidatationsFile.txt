@@ -1,0 +1,34 @@
+        [Display(Name = "User Name")]
+        [Required(ErrorMessage = "Username is required.")]
+        [Remote("IsAlreadyExists", "Users", HttpMethod = "POST", ErrorMessage = "UserName already exists.")]
+        public string username { get; set; }
+
+        [Required(ErrorMessage = "Username is required.")]
+        public string Name { get; set; }
+
+        [Display(Name = "Password")]
+        [Required(ErrorMessage = "Password cannot be empty")]
+        [RegularExpression(@"^(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{7,30}$",
+         ErrorMessage = "Password must have one Special character and 1 numeric and 1 uppercase and must have min 8 characters long")]
+
+        public string password { get; set; }
+        [Display(Name = "Dance Type")]
+        [Required(ErrorMessage = "dance type is required")]
+        public string DanceType { get; set; }
+
+        [Required(ErrorMessage = "Field can't be empty")]
+        [DataType(DataType.EmailAddress, ErrorMessage = "E-mail is not valid")]
+        public string Email { get; set; }
+
+        [Required(ErrorMessage = "gender field is required")]
+        public string Gender { get; set; }
+
+        [Required(ErrorMessage = "please enter the DOB")]
+        public System.DateTime DOB { get; set; }
+        [Required(ErrorMessage = "please enter your city")]
+        public string City { get; set; }
+        [Display(Name = "Mobile Number")]
+        [Required(ErrorMessage = "Cannot be Empty")]
+        [RegularExpression(@"^[6-9]\d{9}$",
+                   ErrorMessage = "Wrong Mobile Number Must start with 6|7|8|9")]
+        public string MobileNumber { get; set; }
